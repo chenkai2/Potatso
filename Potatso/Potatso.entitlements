@@ -20,11 +20,11 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.io.orochi114.potatso</string>
+		<string>group.io.orochi.potatso</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)io.orochi114.potatso</string>
+		<string>$(AppIdentifierPrefix)io.orochi.potatso</string>
 	</array>
 </dict>
 </plist>

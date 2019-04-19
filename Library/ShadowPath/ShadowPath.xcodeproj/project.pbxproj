@@ -1891,7 +1891,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShadowPathDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.orochi114.ShadowPathDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.orochi.ShadowPathDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -1903,7 +1903,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShadowPathDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.orochi114.ShadowPathDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.orochi.ShadowPathDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -2029,7 +2029,7 @@
 					"-DUDPRELAY_LOCAL",
 					"-DMODULE_LOCAL",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.orochi114.ShadowPath;
+				PRODUCT_BUNDLE_IDENTIFIER = io.orochi.ShadowPath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -2065,7 +2065,7 @@
 					"-DUDPRELAY_LOCAL",
 					"-DMODULE_LOCAL",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.orochi114.ShadowPath;
+				PRODUCT_BUNDLE_IDENTIFIER = io.orochi.ShadowPath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "";
