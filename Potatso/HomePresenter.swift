@@ -129,7 +129,7 @@ class HomePresenter: NSObject {
         var dns: String = ""
         let trimmedDNSString = dnsString.trimmingCharacters(in: CharacterSet.whitespaces)
         if !trimmedDNSString.isEmpty {
-            let dnsArray = dnsString.components(separatedBy: ",").map({ $0.components(separatedBy: "，") }).flatMap({ $0 }).map({ $0.trimmingCharacters(in: CharacterSet.whitespaces)}).filter({ $0.characters.count > 0 })
+            let dnsArray = dnsString.components(separatedBy: ",").map({ $0.components(separatedBy: "，") }).flatMap({ $0 }).map({ $0.trimmingCharacters(in: CharacterSet.whitespaces)}).filter({ !$0.isEmpty })
             let ipRegex = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$";
             guard let regex = try? Regex(ipRegex) else {
                 fatalError()

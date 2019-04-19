@@ -46,8 +46,8 @@ class LogDetailViewController: UIViewController {
         guard fd > 0 else {
             return
         }
-        let queue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background)
-        source = DispatchSource.makeReadSource(fileDescriptor: fd, queue: queue) /*Migrator FIXME: Use DispatchSourceRead to avoid the cast*/ as! DispatchSource
+        let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        source = DispatchSource.makeReadSource(fileDescriptor: fd, queue: queue) /*Migrator FIXME: Use DispatchSourceRead to avoid the cast*/ as? DispatchSource
         guard let source = source else {
             return
         }
@@ -69,7 +69,7 @@ class LogDetailViewController: UIViewController {
         let size = Int(min(pending, 65535))
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
         defer {
-            buffer.deallocate(capacity: size)
+            buffer.deallocate()
         }
         let readSize = Darwin.read(fd, buffer, size)
         data.append(buffer, length: readSize)
