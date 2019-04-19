@@ -1654,7 +1654,7 @@
 		B8DEFD721CE9C923003FC706 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = TouchingApp;
 				TargetAttributes = {
 					B82847B31CEB14B000820456 = {
@@ -2002,6 +2002,7 @@
 		B8DEFD841CE9C923003FC706 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2039,6 +2040,7 @@
 		B8DEFD851CE9C923003FC706 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
