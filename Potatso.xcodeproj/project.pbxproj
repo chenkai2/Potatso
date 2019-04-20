@@ -2341,7 +2341,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = TouchingApp;
 				TargetAttributes = {
 					9B07D6AF1CB7A6A900182C1B = {
