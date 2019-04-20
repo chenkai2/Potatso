@@ -194,8 +194,8 @@ extension Proxy {
             self.name = name
             if uriString.lowercased().hasPrefix(Proxy.ssUriPrefix) {
                 // Shadowsocks
-                let undecodedString = uriString.suffix(from: uriString.index(uriString.startIndex, offsetBy: Proxy.ssUriPrefix.count))
-                guard let proxyString = base64DecodeIfNeeded(String(undecodedString)), let _ = proxyString.range(of: ":")?.lowerBound else {
+                let undecodedString = uriString.substring(from: uriString.index(uriString.startIndex, offsetBy: Proxy.ssUriPrefix.count))
+                guard let proxyString = base64DecodeIfNeeded(undecodedString), let _ = proxyString.range(of: ":")?.lowerBound else {
                     throw ProxyError.invalidUri
                 }
                 guard let pc1 = proxyString.range(of: ":")?.lowerBound, let pc2 = proxyString.range(of: ":", options: .backwards)?.lowerBound, let pcm = proxyString.range(of: "@", options: .backwards)?.lowerBound else {
@@ -204,38 +204,33 @@ extension Proxy {
                 if !(pc1 < pcm && pcm < pc2) {
                     throw ProxyError.invalidUri
                 }
-                //let fullAuthscheme = proxyString.lowercased().substring(with: proxyString.startIndex..<pc1)
-                let fullAuthscheme = proxyString.lowercased()[proxyString.startIndex..<pc1]
+                let fullAuthscheme = proxyString.lowercased().substring(with: proxyString.startIndex..<pc1)
                 if let pOTA = fullAuthscheme.range(of: "-auth", options: .backwards)?.lowerBound {
-                    //self.authscheme = fullAuthscheme.substring(to: pOTA)
-                    self.authscheme = String(fullAuthscheme.prefix(upTo: pOTA))
+                    self.authscheme = fullAuthscheme.substring(to: pOTA)
                     self.ota = true
                 }else {
-                    self.authscheme = String(fullAuthscheme)
+                    self.authscheme = fullAuthscheme
                 }
-                //self.password = proxyString.substring(with: proxyString.index(after: pc1)..<pcm)
-                self.password = String(proxyString[proxyString.index(after: pc1)..<pcm])
-                //self.host = proxyString.substring(with: proxyString.index(after: pcm)..<pc2)
-                self.host = String(proxyString[proxyString.index(after: pcm)..<pc2])
-                //guard let p = Int(proxyString.substring(with: proxyString.index(after: pc2)..<proxyString.endIndex)) else {
-                guard let p = Int(proxyString[proxyString.index(after: pc2)..<proxyString.endIndex]) else {
+                self.password = proxyString.substring(with: proxyString.index(after: pc1)..<pcm)
+                self.host = proxyString.substring(with: proxyString.index(after: pcm)..<pc2)
+                guard let p = Int(proxyString.substring(with: proxyString.index(after: pc2)..<proxyString.endIndex)) else {
                     throw ProxyError.invalidPort
                 }
                 self.port = p
                 self.type = .Shadowsocks
             }else if uriString.lowercased().hasPrefix(Proxy.ssrUriPrefix) {
-                let undecodedString = uriString.suffix(from: uriString.index(uriString.startIndex, offsetBy: Proxy.ssrUriPrefix.count))
-                guard let proxyString = base64DecodeIfNeeded(String(undecodedString)), let _ = proxyString.range(of: ":")?.lowerBound else {
+                let undecodedString = uriString.substring(from: uriString.index(uriString.startIndex, offsetBy: Proxy.ssrUriPrefix.count))
+                guard let proxyString = base64DecodeIfNeeded(undecodedString), let _ = proxyString.range(of: ":")?.lowerBound else {
                     throw ProxyError.invalidUri
                 }
-                var hostString: Substring = Substring(proxyString)
-                var queryString: Substring = ""
+                var hostString: String = proxyString
+                var queryString: String = ""
                 if let queryMarkIndex = proxyString.range(of: "?", options: .backwards)?.lowerBound {
-                    hostString = proxyString.prefix(upTo: queryMarkIndex)
-                    queryString = proxyString.suffix(from: proxyString.index(after: queryMarkIndex))
+                    hostString = proxyString.substring(to: queryMarkIndex)
+                    queryString = proxyString.substring(from: proxyString.index(after: queryMarkIndex))
                 }
                 if let hostSlashIndex = hostString.range(of: "/", options: .backwards)?.lowerBound {
-                    hostString = hostString.prefix(upTo: hostSlashIndex)
+                    hostString = hostString.substring(to: hostSlashIndex)
                 }
                 let hostComps = hostString.components(separatedBy: ":")
                 guard hostComps.count == 6 else {
