@@ -14,7 +14,7 @@ class RuleSetCell: UITableViewCell {
 
     let group = ConstraintGroup()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         preservesSuperviewLayoutMargins = false
         layoutMargins = UIEdgeInsets.zero
@@ -157,7 +157,7 @@ class RuleSetCell: UITableViewCell {
         let v = PaddingLabel()
         v.textColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         v.font = UIFont.systemFont(ofSize: 10)
-        v.padding = UIEdgeInsetsMake(3, 10, 3, 10)
+        v.padding = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
         v.layer.cornerRadius = 3
         v.layer.masksToBounds = true
         v.clipsToBounds = true

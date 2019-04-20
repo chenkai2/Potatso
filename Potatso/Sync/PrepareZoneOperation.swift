@@ -7,9 +7,9 @@ import PSOperations
  */
 class PrepareZoneOperation: PSOperations.Operation {
     
-    let zoneID: CKRecordZoneID
+    let zoneID: CKRecordZone.ID
     
-    init(zoneID: CKRecordZoneID) {
+    init(zoneID: CKRecordZone.ID) {
         self.zoneID = zoneID
         super.init()
         name = "Prepare Zone Operation"
@@ -22,7 +22,7 @@ class PrepareZoneOperation: PSOperations.Operation {
         }
     }
     
-    func prepareCKRecordZone(_ zoneID: CKRecordZoneID, completionHandler: @escaping ((NSError?) -> ())) {
+    func prepareCKRecordZone(_ zoneID: CKRecordZone.ID, completionHandler: @escaping ((NSError?) -> ())) {
         // Per CloudKitCatalog, not using NSOperation here
         potatsoDB.fetchAllRecordZones {
             (zones, nsError) in

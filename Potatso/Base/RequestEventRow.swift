@@ -32,7 +32,7 @@ class RequestEventRowCell: Cell<RequestEvent>, CellType {
         return contentLabel.text
     }
 
-    required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
     }

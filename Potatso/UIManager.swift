@@ -17,7 +17,7 @@ class UIManager: NSObject, AppLifeCycleProtocol {
         return UIApplication.shared.keyWindow
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UIView.appearance().tintColor = Color.Brand
 
         UITableView.appearance().backgroundColor = Color.Background

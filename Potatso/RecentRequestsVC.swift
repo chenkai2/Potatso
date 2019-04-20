@@ -127,7 +127,7 @@ class RecentRequestsVC: UIViewController, UITableViewDataSource, UITableViewDele
         v.tableHeaderView = UIView()
         v.separatorStyle = .singleLine
         v.estimatedRowHeight = 70
-        v.rowHeight = UITableViewAutomaticDimension
+        v.rowHeight = UITableView.automaticDimension
         return v
     }()
     

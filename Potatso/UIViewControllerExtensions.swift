@@ -54,7 +54,7 @@ extension UIViewController: UIGestureRecognizerDelegate  {
     
     func showLeftBackButton(_ shouldShow: Bool) {
         if shouldShow {
-            let backItem = UIBarButtonItem(image: "Back".templateImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(pop))
+            let backItem = UIBarButtonItem(image: "Back".templateImage, style: UIBarButtonItem.Style.plain, target: self, action: #selector(pop))
             navigationItem.leftBarButtonItem = backItem
         }else{
             navigationItem.leftBarButtonItem = nil
@@ -73,14 +73,14 @@ extension UIViewController: UIGestureRecognizerDelegate  {
 
     func addChildVC(_ child: UIViewController) {
         view.addSubview(child.view)
-        addChildViewController(child)
-        child.didMove(toParentViewController: self)
+        addChild(child)
+        child.didMove(toParent: self)
     }
 
     func removeChildVC(_ child: UIViewController) {
-        child.willMove(toParentViewController: nil)
+        child.willMove(toParent: nil)
         child.view.removeFromSuperview()
-        child.removeFromParentViewController()
+        child.removeFromParent()
     }
     
     @objc func pop() {

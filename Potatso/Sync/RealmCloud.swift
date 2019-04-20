@@ -8,7 +8,7 @@ import RealmSwift
 /**
  Set the `changeToken` for this `zoneID`.
  */
-public func setZoneChangeToken(_ zoneID: CKRecordZoneID, changeToken: CKServerChangeToken?) {
+public func setZoneChangeToken(_ zoneID: CKRecordZone.ID, changeToken: CKServerChangeToken?) {
     let key = "\(zoneID.zoneName)_serverChangeToken"
     if let changeToken = changeToken {
         UserDefaults.standard.set(
@@ -23,7 +23,7 @@ public func setZoneChangeToken(_ zoneID: CKRecordZoneID, changeToken: CKServerCh
 /**
  Get the local change token for this `zoneID` if one exists.
  */
-public func getZoneChangeToken(_ zoneID: CKRecordZoneID) -> CKServerChangeToken? {
+public func getZoneChangeToken(_ zoneID: CKRecordZone.ID) -> CKServerChangeToken? {
     let encodedObjectData = UserDefaults.standard.object(forKey: "\(zoneID.zoneName)_serverChangeToken") as? Data
     var decodedData: CKServerChangeToken? = nil
     if encodedObjectData != nil {
@@ -63,7 +63,7 @@ public func resolveConflicts(_ error: NSError,
     var adjustedRecords = [CKRecord]()
     
     if let errorDict = error.userInfo[CKPartialErrorsByItemIDKey]
-        as? [CKRecordID : NSError] {
+        as? [CKRecord.ID : NSError] {
         
         for (_, partialError) in errorDict {
             let errorCode = CKError(_nsError: NSError(domain: Bundle.main.bundleIdentifier!, code: partialError.code))

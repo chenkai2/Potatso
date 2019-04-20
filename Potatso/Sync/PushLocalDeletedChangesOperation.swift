@@ -12,9 +12,9 @@ import PSOperations
 
 class PushLocalDeletedChangesOperation: PushLocalChangesBaseOperation {
 
-    var deletedRecordIDs: [CKRecordID]
+    var deletedRecordIDs: [CKRecord.ID]
 
-    init(zoneID: CKRecordZoneID, name: String? = nil, deletedRecordIDs: [CKRecordID], maximumRetryAttempts: Int = 3) {
+    init(zoneID: CKRecordZone.ID, name: String? = nil, deletedRecordIDs: [CKRecord.ID], maximumRetryAttempts: Int = 3) {
         self.deletedRecordIDs = deletedRecordIDs
         super.init(zoneID: zoneID, maximumRetryAttempts: maximumRetryAttempts)
         self.name = name ?? "Push Local Deleted Changes"

@@ -12,7 +12,7 @@ import CloudKit
 
 class NotificationHandler: NSObject, AppLifeCycleProtocol {
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configPush()
         return true
     }
@@ -34,7 +34,7 @@ class NotificationHandler: NSObject, AppLifeCycleProtocol {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let dict = userInfo as? [String: NSObject] {
             let ckNotification = CKNotification(fromRemoteNotificationDictionary: dict)
-            if ckNotification.subscriptionID == potatsoSubscriptionId {
+            if ckNotification?.subscriptionID == potatsoSubscriptionId {
                 DDLogInfo("received a CKNotification")
                 SyncManager.shared.sync()
             }

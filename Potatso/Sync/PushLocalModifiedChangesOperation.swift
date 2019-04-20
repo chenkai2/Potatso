@@ -14,7 +14,7 @@ class PushLocalModifiedChangesOperation: PushLocalChangesBaseOperation {
 
     var recordsToSave: [CKRecord]
 
-    init(zoneID: CKRecordZoneID, name: String? = nil, modifiedRecords: [CKRecord], maximumRetryAttempts: Int = 3) {
+    init(zoneID: CKRecordZone.ID, name: String? = nil, modifiedRecords: [CKRecord], maximumRetryAttempts: Int = 3) {
         self.recordsToSave = modifiedRecords
         super.init(zoneID: zoneID, maximumRetryAttempts: maximumRetryAttempts)
         self.name = name ?? "Push Local Modified Changes"

@@ -14,7 +14,7 @@ class CurrentGroupCell: UITableViewCell {
     
     var switchVPN: (()->Void)?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(nameLabel)
         contentView.addSubview(switchButton)
@@ -27,11 +27,11 @@ class CurrentGroupCell: UITableViewCell {
     
     func config(_ name: String?, status: Bool, switchVPN: (() -> Void)?) {
         nameLabel.text = name ?? "None".localized()
-        switchButton.setBackgroundImage("FF6959".color.alpha(0.76).toImage(), for: UIControlState())
+        switchButton.setBackgroundImage("FF6959".color.alpha(0.76).toImage(), for: UIControl.State())
         
         switchButton.addTarget(self, action: #selector(self.onSwitchValueChanged), for: .touchUpInside)
-        switchButton.setTitle((status ? "Disconnect" : "Connect").localized(), for: UIControlState())
-        switchButton.setBackgroundImage((status ? "FF6959" : "1ABC9C").color.alpha(0.76).toImage(), for: UIControlState())
+        switchButton.setTitle((status ? "Disconnect" : "Connect").localized(), for: UIControl.State())
+        switchButton.setBackgroundImage((status ? "FF6959" : "1ABC9C").color.alpha(0.76).toImage(), for: UIControl.State())
         
         self.switchVPN = switchVPN
     }

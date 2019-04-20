@@ -5,14 +5,14 @@ import PSOperations
 
 class PushLocalChangesBaseOperation: PSOperations.Operation {
     
-    let zoneID: CKRecordZoneID
+    let zoneID: CKRecordZone.ID
 
     let delayOperationQueue = PSOperations.OperationQueue()
     let maximumRetryAttempts: Int
     var retryAttempts: Int = 0
     var finishObserver: BlockObserver!
 
-    init(zoneID: CKRecordZoneID, maximumRetryAttempts: Int = 3) {
+    init(zoneID: CKRecordZone.ID, maximumRetryAttempts: Int = 3) {
         self.zoneID = zoneID
         self.maximumRetryAttempts = maximumRetryAttempts
         super.init()
@@ -40,7 +40,7 @@ class PushLocalChangesBaseOperation: PSOperations.Operation {
 
     }
 
-    func pushLocalRecords(_ recordsToSave: [CKRecord]?, recordIDsToDelete: [CKRecordID]?, completionHandler: @escaping (NSError?) -> ()) {
+    func pushLocalRecords(_ recordsToSave: [CKRecord]?, recordIDsToDelete: [CKRecord.ID]?, completionHandler: @escaping (NSError?) -> ()) {
         let modifyOperation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: recordIDsToDelete)
         modifyOperation.savePolicy = .changedKeys
         modifyOperation.modifyRecordsCompletionBlock = {
@@ -75,7 +75,7 @@ class PushLocalChangesBaseOperation: PSOperations.Operation {
     /**
      Implement custom logic here for handling CloudKit push errors.
      */
-    func handleCloudKitPushError(_ savedRecords: [CKRecord]?, deletedRecordIDs: [CKRecordID]?, error: NSError, completionHandler: @escaping (NSError?) -> ()) {
+    func handleCloudKitPushError(_ savedRecords: [CKRecord]?, deletedRecordIDs: [CKRecord.ID]?, error: NSError, completionHandler: @escaping (NSError?) -> ()) {
         let ckErrorCode: CKError = CKError(_nsError: NSError(domain: Bundle.main.bundleIdentifier!, code: error.code))
         switch ckErrorCode.code {
         case .partialFailure:
@@ -122,7 +122,7 @@ class PushLocalChangesBaseOperation: PSOperations.Operation {
         }
     }
 
-    func resolvePushConflictsAndRetry(_ savedRecords: [CKRecord]?, deletedRecordIDs: [CKRecordID]?, error: NSError, completionHandler: @escaping (NSError?) -> ()) {
+    func resolvePushConflictsAndRetry(_ savedRecords: [CKRecord]?, deletedRecordIDs: [CKRecord.ID]?, error: NSError, completionHandler: @escaping (NSError?) -> ()) {
         let adjustedRecords = resolveConflicts(error, completionHandler: completionHandler, resolver: overwriteFromClient)
         pushLocalRecords(adjustedRecords, recordIDsToDelete: deletedRecordIDs, completionHandler: completionHandler)
     }

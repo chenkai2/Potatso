@@ -16,7 +16,7 @@ import Realm
 
 class DataInitializer: NSObject, AppLifeCycleProtocol {
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Manager.sharedManager.setup()
         CloudSetManager.shared.update()
         sync()

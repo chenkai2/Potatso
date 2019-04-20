@@ -148,7 +148,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         cell.separatorInset = UIEdgeInsets.zero
         cell.selectionStyle = .none
         if indexPath.row == rowCount - 1 {
-            cell.separatorInset = UIEdgeInsetsMake(0, cell.bounds.size.width, 0, 0)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
         }else {
             cell.separatorInset = UIEdgeInsets.zero
         }

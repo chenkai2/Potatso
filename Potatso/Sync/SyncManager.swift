@@ -24,7 +24,7 @@ open class SyncManager {
 
     static let shared = SyncManager()
 
-    open static let syncServiceChangedNotification = "syncServiceChangedNotification"
+    public static let syncServiceChangedNotification = "syncServiceChangedNotification"
     fileprivate var services: [SyncServiceType: SyncServiceProtocol] = [:]
     fileprivate static let serviceTypeKey = "serviceTypeKey"
 

@@ -90,7 +90,7 @@ class ICloudSyncService: SyncServiceProtocol {
     func subscribeNotification() {
         DDLogInfo("subscribing cloudkit database changes...")
         let subscription = CKSubscription(zoneID: potatsoZoneId, subscriptionID: potatsoSubscriptionId, options: CKSubscriptionOptions(rawValue: 0))
-        let info = CKNotificationInfo()
+        let info = CKSubscription.NotificationInfo()
         info.shouldSendContentAvailable = true
         subscription.notificationInfo = info
         potatsoDB.save(subscription, completionHandler: { (sub, error) in

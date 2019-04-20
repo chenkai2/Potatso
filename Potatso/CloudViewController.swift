@@ -114,7 +114,7 @@ class CloudViewController: UIViewController, UITableViewDataSource, UITableViewD
         v.tableFooterView = UIView()
         v.tableHeaderView = UIView()
         v.separatorStyle = .singleLine
-        v.rowHeight = UITableViewAutomaticDimension
+        v.rowHeight = UITableView.automaticDimension
         v.estimatedRowHeight = rowHeight
         return v
     }()
