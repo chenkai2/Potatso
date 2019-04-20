@@ -16,6 +16,7 @@
 		1EEBB8781FFFD52700EB33C3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */; };
 		1EEBB8791FFFD8A700EB33C3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */; };
 		1EF602951F113A660005E0C7 /* GeoLite2-Country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = 1EF602941F113A660005E0C7 /* GeoLite2-Country.mmdb */; };
+		369C3D6B226B1F3F004E5C8C /* rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 369C3D6A226B1F3F004E5C8C /* rule.conf */; };
 		49AFCAB8A7A7C95E61767328 /* Pods_PacketProcessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075A0EDC2AD266124CA24078 /* Pods_PacketProcessor.framework */; };
 		73AC1EAA0D7C41952F34CF14 /* Pods_PotatsoLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A646ACF237B032E4A2016FC /* Pods_PotatsoLibraryTests.framework */; };
 		82F0934D24F9F56921AF0EE0 /* Pods_PotatsoModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD33A4FF6B8E224B4FF4A210 /* Pods_PotatsoModel.framework */; };
@@ -346,6 +347,7 @@
 		1EE85E0B2000639700C5DB6C /* InfoInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInternal.swift; sourceTree = "<group>"; };
 		1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		1EF602941F113A660005E0C7 /* GeoLite2-Country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeoLite2-Country.mmdb"; sourceTree = "<group>"; };
+		369C3D6A226B1F3F004E5C8C /* rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = rule.conf; sourceTree = "<group>"; };
 		3B502BA200A6141FAEC09781 /* Pods-Potatso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Potatso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Potatso/Pods-Potatso.release.xcconfig"; sourceTree = "<group>"; };
 		3C9A6823014EF76FB5F7725A /* Pods-PotatsoLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotatsoLibrary.debug.xcconfig"; path = "Target Support Files/Pods-PotatsoLibrary/Pods-PotatsoLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		449ADF56B4DEE9FAF1DE89DD /* Pods-PotatsoLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotatsoLibraryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PotatsoLibraryTests/Pods-PotatsoLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1112,6 +1114,7 @@
 				9B0CFA171C1C0B1B007BD7C6 /* LaunchScreen.storyboard */,
 				9B0CFA1A1C1C0B1B007BD7C6 /* Info.plist */,
 				B8319A0F1D1BD696001E50C2 /* Localizable.strings */,
+				369C3D6A226B1F3F004E5C8C /* rule.conf */,
 			);
 			path = Potatso;
 			sourceTree = "<group>";
@@ -2453,6 +2456,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				Base,
 				"zh-Hans",
 				"zh-Hant",
@@ -2512,6 +2516,7 @@
 			files = (
 				9B1F745E1C2F83AD0028C1A6 /* config.plist in Resources */,
 				9B0CFA191C1C0B1B007BD7C6 /* LaunchScreen.storyboard in Resources */,
+				369C3D6B226B1F3F004E5C8C /* rule.conf in Resources */,
 				B8319A0D1D1BD696001E50C2 /* Localizable.strings in Resources */,
 				1EF602951F113A660005E0C7 /* GeoLite2-Country.mmdb in Resources */,
 				9B8285471CE20DE40027D15C /* HMScanner.bundle in Resources */,
