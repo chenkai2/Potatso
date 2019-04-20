@@ -35,7 +35,7 @@ public let kProxyServiceVPNStatusNotification = "kProxyServiceVPNStatusNotificat
 
 open class Manager {
     
-    open static let sharedManager = Manager()
+    public static let sharedManager = Manager()
     
     open fileprivate(set) var vpnStatus = VPNStatus.off {
         didSet {
@@ -43,7 +43,7 @@ open class Manager {
         }
     }
     
-    open let wormhole = MMWormhole(applicationGroupIdentifier: Potatso.sharedGroupIdentifier(), optionalDirectory: "wormhole")
+    public let wormhole = MMWormhole(applicationGroupIdentifier: Potatso.sharedGroupIdentifier(), optionalDirectory: "wormhole")
 
     var observerAdded: Bool = false
     
@@ -87,6 +87,8 @@ open class Manager {
         case .disconnecting:
             self.vpnStatus = .disconnecting
         case .disconnected, .invalid:
+            self.vpnStatus = .off
+        @unknown default:
             self.vpnStatus = .off
         }
     }
@@ -233,7 +235,7 @@ extension Manager {
     
     func generateGeneralConfig() throws {
         let confURL = Potatso.sharedGeneralConfUrl()
-        let json: NSDictionary = ["dns": defaultConfigGroup.dns ?? ""]
+        let json: NSDictionary = ["dns": defaultConfigGroup.dns]
         try json.jsonString()?.write(to: confURL, atomically: true, encoding: String.Encoding.utf8)
     }
     

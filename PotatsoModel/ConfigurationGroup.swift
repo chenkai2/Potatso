@@ -38,7 +38,7 @@ open class ConfigurationGroup: BaseModel {
     open var proxies = List<Proxy>()
     open var ruleSets = List<RuleSet>()
     
-    open override static func indexedProperties() -> [String] {
+    public override static func indexedProperties() -> [String] {
         return ["name"]
     }
     

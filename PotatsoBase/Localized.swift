@@ -22,7 +22,7 @@ public extension String {
      Swift 2 friendly localization syntax, replaces NSLocalizedString
      - Returns: The localized string.
      */
-    public func localized() -> String {
+    func localized() -> String {
         if let path = Bundle.main.path(forResource: Localize.currentLanguage(), ofType: "lproj"), let bundle = Bundle(path: path) {
             return bundle.localizedString(forKey: self, value: nil, table: nil)
         }else if let path = Bundle.main.path(forResource: "Base", ofType: "lproj"), let bundle = Bundle(path: path) {
@@ -35,7 +35,7 @@ public extension String {
      Swift 2 friendly localization syntax with format arguments, replaces String(format:NSLocalizedString)
      - Returns: The formatted localized string with arguments.
      */
-    public func localizedFormat(_ arguments: CVarArg...) -> String {
+    func localizedFormat(_ arguments: CVarArg...) -> String {
         return String(format: localized(), arguments: arguments)
     }
     
@@ -46,7 +46,7 @@ public extension String {
      
      - returns: Pluralized localized string.
      */
-    public func localizedPlural(_ argument: CVarArg) -> String {
+    func localizedPlural(_ argument: CVarArg) -> String {
         return NSString.localizedStringWithFormat(localized() as NSString, argument) as String
     }
 }

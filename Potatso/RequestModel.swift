@@ -317,7 +317,7 @@ class Request {
                 guard ts > 0 else {
                     continue
                 }
-                if let _ = Request.excluededStage.index(of: stage) {
+                if let _ = Request.excluededStage.firstIndex(of: stage) {
                     continue
                 }
                 let event = RequestEvent(request: self, stage: stage, timestamp: ts)
