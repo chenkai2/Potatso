@@ -196,6 +196,7 @@ class ConfigGroupChooseVC: UIViewController, UITableViewDataSource, UITableViewD
         super.loadView()
         view.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         gesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        gesture?.cancelsTouchesInView = false;
         gesture?.delegate = self
         view.addGestureRecognizer(gesture!)
         view.addSubview(tableView)
