@@ -17,6 +17,7 @@ enum Event: String {
 
 }
 
-func logEvent(_ event: Event, attributes: [String: AnyObject]?) {
-    Answers.logCustomEvent(withName: event.rawValue, customAttributes: attributes)
-}
+//func logEvent(_ event: Event, attributes: [String: AnyObject]?) {
+//    NSLog(<#T##format: String##String#>, <#T##args: CVarArg...##CVarArg#>)
+//    Answers.logCustomEvent(withName: event.rawValue, customAttributes: attributes)
+//}

@@ -33,7 +33,7 @@ Potatso has in total 26 dependencies as following
 * 20 Cocoapod dependencies
 * 4 submodules dependencies via local cocoapod
 
-The project is tested with Xcode `9.4 (9F1027a)` on iOS `11.4 (15F79)` device with cocoapod version `1.4.0`+.  
+The project is tested with Xcode `10.2.1 (10E1001)` on iOS `12.2 (16E226)` device with cocoapod version `1.7.0`+.  
 If you experienced an expected issue, try to use those versions, if still experience the problem please file the issue.
 
 The project will be further reduced for its dependencies.
@@ -43,14 +43,14 @@ The project will be further reduced for its dependencies.
 Perform the following steps to be able to build the project.
 Be warned that you **should not** call `pod update` as newer version of pod frameworks that Potatso depends on might break building process and there will be errors.
 
-1. `git clone https://github.com/haxpor/Potatso.git` or for faster using less time in cloning `git clone https://github.com/haxpor/Potatso.git --depth=1`
+1. `git clone https://github.com/chenkai2/Potatso.git` or for faster using less time in cloning `git clone https://github.com/chenkai2/Potatso.git --depth=1`
 2. `cd Potatso`
 3. `git submodule update --init` to update git submodule
 4. `pod install` to pull down dependencies into our project
 5. Open `Potatso.xcworkspace` then Build and Run the project. Done.
 
 > First two steps are clearly listed here as per [#89](https://github.com/haxpor/Potatso/issues/89); if you download project as zip via Github web interface it will not have enough information to pull down required gitsubmodule, and step 3 will have error. So make sure you clone via command line, or using any git client application before proceeding.
-   
+
 ## How To Contribute
 
 Clone the project, make some changes or add a new feature, then make a pull request.
@@ -61,7 +61,6 @@ We use the following services or open-source libraries. So we'd like show them h
 
 ### Services
 
-- [Fabric](https://get.fabric.io/) -- currently not use anymore
 - [Reveal](http://revealapp.com/)
 - [realm](https://realm.io/)
 

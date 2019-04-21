@@ -21,10 +21,7 @@ PODS:
     - CocoaLumberjack/Default
   - CocoaLumberjack/Swift (3.0.0):
     - CocoaLumberjack/Extensions
-  - Crashlytics (3.10.9):
-    - Fabric (~> 1.7.13)
   - Eureka (4.1.1)
-  - Fabric (1.7.13)
   - ICDMaterialActivityIndicatorView (0.1.2)
   - ICSMainFramework (0.0.1)
   - ICSPullToRefresh (0.6)
@@ -71,7 +68,6 @@ DEPENDENCIES:
   - Cartography
   - CocoaAsyncSocket (~> 7.4.3)
   - CocoaLumberjack/Swift (~> 3.0.0)
-  - Crashlytics (~> 3.10.7)
   - Eureka
   - ICDMaterialActivityIndicatorView (~> 0.1.0)
   - ICSMainFramework (from `./Library/ICSMainFramework/`)
@@ -96,9 +92,7 @@ SPEC REPOS:
     - Cartography
     - CocoaAsyncSocket
     - CocoaLumberjack
-    - Crashlytics
     - Eureka
-    - Fabric
     - ICDMaterialActivityIndicatorView
     - ICSPullToRefresh
     - ISO8601DateFormatter
@@ -133,9 +127,7 @@ SPEC CHECKSUMS:
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
-  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
-  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
   ICDMaterialActivityIndicatorView: 3f02a9dc9e52417023a98385d631c93d3f95c465
   ICSMainFramework: 56240e9556d3b0755fc9c934a91ee8ebd09cb753
   ICSPullToRefresh: a64f102c6558cc34270ea60e99df7c91d1f3d2c0

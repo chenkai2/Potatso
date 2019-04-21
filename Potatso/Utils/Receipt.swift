@@ -65,7 +65,7 @@ class Receipt: NSObject, SKRequestDelegate {
 
     fileprivate func validateReceipt(_ path: String, tryAgain: Bool) {
         let valid = ReceiptUtils.verifyReceipt(atPath: path)
-        logEvent(.ReceiptValidationResult, attributes: ["valid": valid ? "true" as AnyObject: "false" as AnyObject])
+        //logEvent(.ReceiptValidationResult, attributes: ["valid": valid ? "true" as AnyObject: "false" as AnyObject])
         if !valid {
             if tryAgain {
                 requestNewReceipt()
