@@ -84,6 +84,9 @@ class RuleSetConfigurationViewController: FormViewController {
             insertRule(rule, atIndex: editSection.count)
         }
         form +++ editSection
+
+        //guard let tableView = (form.delegate as? FormViewController)?.tableView else { return }
+        //tableView.isEditing = true;
     }
 
     func insertRule(_ rule: Rule, atIndex index: NSInteger) {
@@ -131,6 +134,9 @@ class RuleSetConfigurationViewController: FormViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                return false
+            }
             return editable
         }
         return false
@@ -138,6 +144,9 @@ class RuleSetConfigurationViewController: FormViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            if indexPath.row == 0 {
+                return
+            }
             ruleSet.removeRule(atIndex: indexPath.row - 1)
             form[indexPath].hidden = true
             form[indexPath].evaluateHidden()

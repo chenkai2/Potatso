@@ -179,6 +179,10 @@
 		361A7C9A1520E67869FF0CF90457BCEF /* ISO8601DateFormatter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C577E3235AD7BE592FC64C3C340514 /* ISO8601DateFormatter-dummy.m */; };
 		363930043A667B1B6CED5594E37EDA8C /* collection_change_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39DEE76DA267617A9E91267A9DD6B18 /* collection_change_builder.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.10.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		367A43711D8803B12B0C5CC1DD2ACC0C /* ms.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7E8706D302C7B7E73096433DD7A2A849 /* ms.lproj */; };
+		369644A1226CA47D00632FC1 /* DoublePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3696449D226CA47C00632FC1 /* DoublePickerRow.swift */; };
+		369644A2226CA47D00632FC1 /* TriplePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3696449E226CA47C00632FC1 /* TriplePickerRow.swift */; };
+		369644A3226CA47D00632FC1 /* TriplePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3696449F226CA47D00632FC1 /* TriplePickerInputRow.swift */; };
+		369644A4226CA47D00632FC1 /* DoublePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369644A0226CA47D00632FC1 /* DoublePickerInputRow.swift */; };
 		36A86D7E194245FDCEC92F82F0CBE8D0 /* schema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2646C3530377171C4FB61A60F45725D6 /* schema.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.10.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		36B2E42F7C145DF33BBB4B06608FE837 /* sync_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A02CC80D93CD96C87F333145BE6DCF4B /* sync_manager.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.10.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		36F8EAD042DF3A44162737A61AA1C530 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8420FD8420751653F1830350E5CDDD /* SwitchRow.swift */; };
@@ -1307,6 +1311,10 @@
 		365644AA7B8AA57F6F2A4C275D5C61B8 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLElementAdditions.m; path = KissXML/Additions/DDXMLElementAdditions.m; sourceTree = "<group>"; };
 		365A81729D3EA3849202DDC789F49554 /* sync_metadata.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_metadata.cpp; path = Realm/ObjectStore/src/sync/impl/sync_metadata.cpp; sourceTree = "<group>"; };
 		366138604BA217F62546A694919F1E24 /* KissXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KissXML-dummy.m"; sourceTree = "<group>"; };
+		3696449D226CA47C00632FC1 /* DoublePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePickerRow.swift; sourceTree = "<group>"; };
+		3696449E226CA47C00632FC1 /* TriplePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriplePickerRow.swift; sourceTree = "<group>"; };
+		3696449F226CA47D00632FC1 /* TriplePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriplePickerInputRow.swift; sourceTree = "<group>"; };
+		369644A0226CA47D00632FC1 /* DoublePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePickerInputRow.swift; sourceTree = "<group>"; };
 		36B8C37E7A63E5EE5EDB952C09853269 /* MMWormhole-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMWormhole-dummy.m"; sourceTree = "<group>"; };
 		36D25ABA3EC8A48EEE01CB81148B57BA /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Classes/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
 		37281178F2A66832DC90268A7D4202C3 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
@@ -3314,6 +3322,10 @@
 		D0F513E9AB00DAAAC9167357B9812E29 /* Eureka */ = {
 			isa = PBXGroup;
 			children = (
+				369644A0226CA47D00632FC1 /* DoublePickerInputRow.swift */,
+				3696449D226CA47C00632FC1 /* DoublePickerRow.swift */,
+				3696449F226CA47D00632FC1 /* TriplePickerInputRow.swift */,
+				3696449E226CA47C00632FC1 /* TriplePickerRow.swift */,
 				30A88B826FAF02DA821A8CEFACDEC2C6 /* ActionSheetRow.swift */,
 				A0CC8C5202E3E0F01A58EB6597E5B51A /* AlertOptionsRow.swift */,
 				C8164D6E3226F54EE3A8A945F8D0E0CD /* AlertRow.swift */,
@@ -4946,6 +4958,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369644A1226CA47D00632FC1 /* DoublePickerRow.swift in Sources */,
+				369644A2226CA47D00632FC1 /* TriplePickerRow.swift in Sources */,
+				369644A3226CA47D00632FC1 /* TriplePickerInputRow.swift in Sources */,
+				369644A4226CA47D00632FC1 /* DoublePickerInputRow.swift in Sources */,
 				63C7E6B11F86706873352776C4ADEB5D /* ActionSheetRow.swift in Sources */,
 				263E46208D0EEEBB1B0EF3A679E6A18F /* AlertOptionsRow.swift in Sources */,
 				F838A8DE6EDFD1326CA622F9E57F672F /* AlertRow.swift in Sources */,
