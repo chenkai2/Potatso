@@ -71,6 +71,8 @@ class RuleSetConfigurationViewController: FormViewController {
             }
         
         editSection = Section("Rule".localized())
+        //disabled because when ruleset is large, e.g. > 400, reorder form would cause app crash.
+        //editSection = MultivaluedSection(multivaluedOptions: [.Delete, .Reorder], header: "Rule".localized(), footer: "")
         if editable {
             editSection <<< BaseButtonRow () {
                 $0.title = "Add Rule".localized()
@@ -85,8 +87,6 @@ class RuleSetConfigurationViewController: FormViewController {
         }
         form +++ editSection
 
-        //guard let tableView = (form.delegate as? FormViewController)?.tableView else { return }
-        //tableView.isEditing = true;
     }
 
     func insertRule(_ rule: Rule, atIndex index: NSInteger) {
@@ -156,5 +156,29 @@ class RuleSetConfigurationViewController: FormViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return UITableViewCell.EditingStyle.delete
     }
-    
+
+    /*
+    // enable drag rules
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        if sourceIndexPath.section != 1 || destinationIndexPath.section != 1 {
+            return
+        }
+        if sourceIndexPath.row == 0 || destinationIndexPath.row == 0 {
+            return
+        }
+
+        guard var section = form[sourceIndexPath.section] as? MultivaluedSection else { return }
+        if sourceIndexPath.row < section.count && destinationIndexPath.row < section.count && sourceIndexPath.row != destinationIndexPath.row {
+
+            let sourceRow = form[sourceIndexPath]
+            //animateTableView = false
+            section.remove(at: sourceIndexPath.row)
+            section.insert(sourceRow, at: destinationIndexPath.row)
+            //animateTableView = true
+            // update the accessory view
+            let _ = inputAccessoryView(for: sourceRow)
+            ruleSet.move(sourceIndexPath.row, toIndex: destinationIndexPath.row+1)
+        }
+    }
+    */
 }
