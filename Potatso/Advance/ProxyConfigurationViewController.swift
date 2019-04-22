@@ -114,9 +114,11 @@ class ProxyConfigurationViewController: FormViewController {
             <<< PasswordRow(kProxyFormPassword) {
                 $0.title = "Password".localized()
                 $0.value = self.upstreamProxy.password ?? nil
-            }.cellSetup { cell, row in
+            }.cellSetup({ (cell, row) in
                 cell.textField.placeholder = "Proxy Password".localized()
-            }
+            }).onCellSelection({ (cell, row) in
+                cell.textField.isSecureTextEntry = !cell.textField.isSecureTextEntry
+            })
             <<< SwitchRow(kProxyFormOta) {
                 $0.title = "One Time Auth".localized()
                 $0.value = self.upstreamProxy.ota
