@@ -19,6 +19,15 @@ class CloudSetManager {
     }
 
     func update() {
+        Async.background(after: 1) {
+            API.setCloudsetIp() { (response) in
+                if let ipConfig = response.result.value {
+                    API.URL = ipConfig.url
+                }else {
+                    response.result.error?.log("Fail to update ruleset url")
+                }
+            }
+        }
         Async.background(after: 1.5) {
             let realm = try! Realm()
             let uuids = realm.objects(RuleSet.self).filter("isSubscribe = true").map({$0.uuid})

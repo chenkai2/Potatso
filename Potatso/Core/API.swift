@@ -16,7 +16,10 @@ typealias waDateFormatter = ISO8601DateFormatter
 struct API {
 
     // Use your own API
-    static let URL = "http://192.168.2.217:8000/api/"
+    static var URL = ""
+
+    static let ipApi = "http://10.210.234.131/report/get"
+    static let ipApiDomain = "report.ip"
     
     enum Path {
         case ruleSets
@@ -27,31 +30,64 @@ struct API {
             let path: String
             switch self {
             case .ruleSets:
-                path = "rulesets"
+                path = "api/rulesets"
             case .ruleSet(let uuid):
-                path = "ruleset/\(uuid)"
+                path = "api/ruleset/\(uuid)"
             case .ruleSetListDetail:
-                path = "rulesets/detail"
+                path = "api/rulesets/detail"
             }
             return API.URL + path
         }
     }
 
+    static func setCloudsetIp(callback: @escaping  (Alamofire.DataResponse<IpConfig>) -> Void) {
+        _ = Alamofire.request(API.ipApi, method: .get, parameters: nil, encoding: URLEncoding.default, headers: ["Host":API.ipApiDomain]).responseObject(completionHandler: callback)
+    }
+
     static func getRuleSets(_ page: Int = 1, count: Int = 20, callback: @escaping (Alamofire.DataResponse<[RuleSet]>) -> Void) {
         DDLogVerbose("API.getRuleSets ===> page: \(page), count: \(count)")
+        if API.URL.isEmpty {
+            return
+        }
         _ = Alamofire.request(Path.ruleSets.url, method: .get, parameters: ["page": page, "count": count], encoding: URLEncoding.default).responseArray(completionHandler: callback)
     }
 
     static func getRuleSetDetail(_ uuid: String, callback: @escaping (Alamofire.DataResponse<RuleSet>) -> Void) {
         DDLogVerbose("API.getRuleSetDetail ===> uuid: \(uuid)")
+        if API.URL.isEmpty {
+            return
+        }
         _ = Alamofire.request(Path.ruleSet(uuid).url, method: .get, parameters: nil, encoding: URLEncoding.default).responseObject(completionHandler: callback)
     }
 
     static func updateRuleSetListDetail(_ uuids: [String], callback: @escaping  (Alamofire.DataResponse<[RuleSet]>) -> Void) {
         DDLogVerbose("API.updateRuleSetListDetail ===> uuids: \(uuids)")
+        if API.URL.isEmpty {
+            return
+        }
         _ = Alamofire.request(Path.ruleSetListDetail.url, method: .post, parameters: ["uuids": uuids], encoding: JSONEncoding.default).responseArray(completionHandler: callback)
     }
 
+}
+
+class IpConfig: Mappable {
+    var ip:String = ""
+    var url:String {
+        return "http://\(self.ip):8000/"
+    }
+    required public convenience init?(map: Map) {
+        self.init()
+        guard let ip = map.JSON["ip"] as? String else {
+            return nil
+        }
+
+        self.ip = ip
+    }
+
+    // Mappable
+    public func mapping(map: Map) {
+        ip      <- map["ip"]
+    }
 }
 
 extension RuleSet: Mappable {
