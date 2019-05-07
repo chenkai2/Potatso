@@ -124,6 +124,8 @@ class RuleSetConfigurationViewController: FormViewController {
                 throw "Name can't be empty".localized()
             }
             ruleSet.name = name
+            // update ruleSet's ruleJson manually
+            ruleSet.rules = rules
             try DBUtils.add(ruleSet)
             callback?(ruleSet)
             close()
